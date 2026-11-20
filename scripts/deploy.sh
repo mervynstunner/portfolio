@@ -24,7 +24,7 @@ cd "$APP/frontend"
 npm ci --no-audit --no-fund
 npx vite build
 sudo mkdir -p "$WEB"
-sudo rsync -a --delete dist/ "$WEB/"
+sudo rsync -a --delete --chmod=D755,F644 dist/ "$WEB/"
 
 echo "→ nginx"
 sudo nginx -t && sudo systemctl reload nginx
