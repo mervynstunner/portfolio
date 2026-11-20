@@ -25,6 +25,7 @@ npm ci --no-audit --no-fund
 npx vite build
 sudo mkdir -p "$WEB"
 sudo rsync -a --delete --chmod=D755,F644 dist/ "$WEB/"
+sudo chmod 755 "$WEB" && sudo chmod -R a+rX "$WEB"
 
 echo "→ nginx"
 sudo nginx -t && sudo systemctl reload nginx
